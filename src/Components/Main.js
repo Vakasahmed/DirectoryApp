@@ -45,8 +45,12 @@ const Main = () => {
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(details));
+ useEffect(() => {
+    if (details.length === 0) {
+      return;
+    } else {
+      localStorage.setItem("data", JSON.stringify(details));
+    }
   }, [details]);
 
   const removeAfterSave = (e) => {
